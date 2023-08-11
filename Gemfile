@@ -48,3 +48,5 @@ gem 'rubocop-factory_bot'
 gem 'rubocop-rails'
 gem 'rubocop-rspec'
 gem 'omniauth-google-oauth2'
+
+gem "devise", "~> 4.9"
