@@ -25,14 +25,14 @@ gem 'omniauth'
 
 gem "omniauth-rails_csrf_protection"
 
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 
 gem "bootsnap", require: false
 
 gem 'pry'
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i(mri mingw x64_mingw)
 end
 
 group :development do
@@ -43,3 +43,7 @@ end
 group :test do
   gem 'rspec'
 end
+
+gem 'rubocop-factory_bot'
+gem 'rubocop-rails', '~> 2.20'
+gem 'rubocop-rspec'
