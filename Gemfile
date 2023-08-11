@@ -45,5 +45,6 @@ group :test do
 end
 
 gem 'rubocop-factory_bot'
-gem 'rubocop-rails', '~> 2.20'
+gem 'rubocop-rails'
 gem 'rubocop-rspec'
+gem 'omniauth-google-oauth2'
