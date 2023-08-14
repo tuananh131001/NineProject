@@ -44,9 +44,9 @@ group :test do
   gem 'rspec'
 end
 
+gem 'omniauth-google-oauth2'
 gem 'rubocop-factory_bot'
 gem 'rubocop-rails'
 gem 'rubocop-rspec'
-gem 'omniauth-google-oauth2'
 
 gem "devise", "~> 4.9"

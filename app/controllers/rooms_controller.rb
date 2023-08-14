@@ -19,4 +19,16 @@ class RoomsController < ApplicationController
       end
     end
   end
+
+  def show
+    @current_user = current_user
+    @single_room = Room.find(params[:id])
+    @rooms = Room.public_rooms
+    @users = User.all_except(@current_user)
+    @room = Room.new
+    @message = Message.new
+    @messages = @single_room.messages
+  
+    render "index"
+  end
 end
