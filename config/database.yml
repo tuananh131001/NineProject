@@ -17,6 +17,8 @@ test:
 
 production:
   <<: *default
+  host: db.vdcvawyxiswxjbvzpofw.supabase.co
+  port: 5432
   database: nine_project
   username: postgres
   password: <%= ENV["NINE_PROJECT_DATABASE_PASSWORD"] %>
