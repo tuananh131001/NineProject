@@ -22,4 +22,3 @@ production:
   database: postgres
   username: postgres
   password: <%= ENV["NINE_PROJECT_DATABASE_PASSWORD"] %>
-
