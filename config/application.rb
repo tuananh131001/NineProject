@@ -1,12 +1,14 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module MyApi
+module Nine
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -23,5 +25,15 @@ module MyApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    additional_load_paths = %W(
+      #{Rails.root.join('lib/workers')}
+      #{Rails.root.join('lib/shared')}
+      #{Rails.root.join('lib/utils')}
+      #{Rails.root.join('lib')}
+    )
+
+    config.autoload_paths.push(*additional_load_paths)
+    config.eager_load_paths.push(*additional_load_paths)
   end
 end

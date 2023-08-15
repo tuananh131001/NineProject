@@ -1,18 +1,24 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # System
 ruby '3.1.2'
 
 gem 'pg'
-gem "rails", "~> 7.0.6"
+gem 'rails', '~> 7.0.6'
 gem 'rake'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem 'bootsnap', require: false
+
+gem 'bcrypt'
+
+gem 'jwt'
 
 group :development, :test do
   gem 'dead_end' # find unmatched 'end' in code
@@ -30,9 +36,9 @@ end
 group :test do
   gem 'mock_redis'
   gem 'rspec-rails'
-  gem "rspec-sidekiq", "~> 3.1"
+  gem 'rspec-sidekiq', '~> 3.1'
 
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'timecop'
   gem 'webmock'
