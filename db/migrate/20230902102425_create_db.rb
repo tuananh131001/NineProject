@@ -48,13 +48,21 @@ class CreateDb < ActiveRecord::Migration[7.0]
       t.decimal "price", default: "0.0", null: false
       t.text "status", null: false
 
-      t.integer "user_id", null: false
       t.integer "product_id", null: false
       t.timestamps
     end
 
-    add_foreign_key "cards", "users", name: "user_id_fkey", on_delete: :cascade
+    create_table "card_attempts", force: :cascade do |t|
+      t.text "status", null: false
+      t.integer "user_id", null: false
+      t.integer "card_id", null: false
+      t.timestamps
+    end
+
     add_foreign_key "cards", "products", name: "product_id_fkey", on_delete: :cascade
+    add_foreign_key "card_attempts", "users", name: "user_id_fkey", on_delete: :cascade
+    add_foreign_key "card_attempts", "cards", name: "card_id_fkey", on_delete: :cascade
+
     add_foreign_key "products", "brands", name: "brand_id_fkey", on_delete: :cascade
   end
 

@@ -24,7 +24,7 @@ class CardsController < ApplicationController
   private
 
     def card_params
-      params.permit(:name, :price, :status)
+      params.permit(:name, :price, :status, :product_id)
     end
 
     def find_card

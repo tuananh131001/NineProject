@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
-  belongs_to :brand
-  belongs_to :user
+  belongs_to :product
+  has_one :card_attempts
 
 end
