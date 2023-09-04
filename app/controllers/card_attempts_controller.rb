@@ -1,26 +1,13 @@
 class CardAttemptsController < ApplicationController
-  before_action :find_card, only: %i(show destroy)
 
-  def issue
-    card = Card.find(params[:id])
-    user = User.find(params[:user_id])
-    card_attempts = CardAttempt.create(user_id: user.id, card_id: card.id, status: CardAttempt.statuses[:issued])
+  def index
+    attempts = CardAttempt.order(created_at: :desc)
 
-    if card_attempts
-      render json: card_attempts, status: :created
+    if attempts
+      render json: attempts, status: :ok
     else
-      render json: { errors: card.errors.full_messages }, status: :service_unavailable
+      render json: { error: 'No attempts found' }, status: :not_found
     end
   end
 
-  def cancel
-    attempt = CardAttempt.find(params[:id])
-    status = attempt.update(status: CardAttempt.statuses[:cancelled])
-
-    if status
-      render json: attempt, status: :created
-    else
-      render json: { errors: card.errors.full_messages }, status: :service_unavailable
-    end
-  end
 end

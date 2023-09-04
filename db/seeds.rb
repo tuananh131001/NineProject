@@ -10,7 +10,7 @@
 User.destroy_all
 
 User.create({
-  user_name: "admin",
+  user_name: "william",
   email: "w@g.com",
   password: "123456"
 })

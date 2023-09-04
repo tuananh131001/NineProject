@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   has_secure_password
-  has_many :card_attempts
+  has_many :cards
 
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true

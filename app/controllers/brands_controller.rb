@@ -7,16 +7,18 @@ class BrandsController < ApplicationController
   end
 
   def show
-    render json: brand, status: :ok
+    render json: Brand.find(params[:id]), status: :ok
   end
 
   def create
     brand = Brand.create(brand_params)
-    if brand
+    if brand.valid?
       render json: brand, status: :created
     else
-      render json: { errors: brand.errors.full_messages }, status: :service_unavailable
+      render json: { errors: brand.errors.full_messages }, status: :unprocessable_entity
     end
+  rescue ActiveRecord::NotNullViolation => e
+    render json: { errors: "Invalid params" }, status: :unprocessable_entity
   end
 
   def status
@@ -30,7 +32,10 @@ class BrandsController < ApplicationController
     end
   end
 
-  delegate :destroy, to: :brand
+  def destroy
+    @brand.destroy
+    render json: { message: 'Brand deleted successfully' }, status: :ok
+  end
 
   private
 

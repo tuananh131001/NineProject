@@ -4,13 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :cards do
     member do
-      put 'issue' => 'card_attempts#issue'
-    end
-  end
-
-  resources :card_attempts do
-    member do
-      put 'cancel' => 'card_attempts#cancel'
+      put 'create' => 'cards#create'
+      put 'activate' => 'cards#activate'
+      put 'cancel' => 'cards#cancel'
     end
   end
 
@@ -25,5 +21,8 @@ Rails.application.routes.draw do
       put 'status'
     end
   end
+
+  resources :card_attempts, only: [:index]
+  
   post '/auth/login', to: 'authentication#login'
 end
