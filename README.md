@@ -177,4 +177,6 @@ Write models and controller test for others files
 
 Better handling error
 
-Technical Requirements
+## Postman
+[Postman Collection](NineProject.postman_collection.json)
+
