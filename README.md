@@ -17,6 +17,11 @@ PostgreSQL
 5. `bundle exec rake db:seed`
 6. `rails s`
 
+# Deployment
+https://nineproject.onrender.com
+
+![image](https://github.com/tuananh131001/NineProject/assets/67695658/59e80393-df17-4c65-8e9b-9fb87149d9d5)
+
 
 # Endpoints
 - [x]  User Authentication:
