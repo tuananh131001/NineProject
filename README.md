@@ -2,8 +2,11 @@
 
 # Pre
 Ruby ( Rbenv I used)
+
 PostgreSQL
+
 `brew install libsodium`
+
 `brew install postgis`
 
 # Setup
