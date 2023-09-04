@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   end
 
   resources :card_attempts, only: [:index]
-  
+
   post '/auth/login', to: 'authentication#login'
 end

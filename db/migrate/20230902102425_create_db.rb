@@ -12,6 +12,7 @@ class CreateDb < ActiveRecord::Migration[7.0]
       t.string "user_name", null: false
       t.string "email", null: false
       t.string "password_digest", null: false
+      t.text "auth_credentials"
       t.decimal "payout_rate", default: "0.0"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false

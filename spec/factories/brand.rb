@@ -9,4 +9,3 @@ FactoryBot.define do
     status { "active" }
   end
 end
-

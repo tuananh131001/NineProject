@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    render json: product, status: :ok
+    render json: @product, status: :ok
   end
 
   # Create with brand
@@ -33,12 +33,30 @@ class ProductsController < ApplicationController
     end
   end
 
-  delegate :destroy, to: :product
+  def update
+    product = Product.find(params[:id])
+    product.update!(product_params)
+
+    if product
+      render json: product, status: :created
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @product.destroy
+      render json: { message: 'Product deleted successfully' }, status: :no_content
+    else
+      render json: { error: 'Failed to delete product' }, status: :unprocessable_entity
+    end
+  end
 
   private
 
     def product_params
-      params.permit(:name, :price, :currency, :weight, :sku, :description, :manufacturing_date, :status, :brand_id)
+      params.require(:product).permit(:name, :price, :currency, :weight, :sku, :description, :manufacturing_date, :status,
+                                      :brand_id)
     end
 
     def find_product

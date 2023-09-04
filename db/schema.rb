@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_102425) do
     t.string "user_name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.text "auth_credentials"
     t.decimal "payout_rate", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

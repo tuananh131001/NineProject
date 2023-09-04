@@ -18,7 +18,7 @@ class BrandsController < ApplicationController
       render json: { errors: brand.errors.full_messages }, status: :unprocessable_entity
     end
   rescue ActiveRecord::NotNullViolation => e
-    render json: { errors: "Invalid params" }, status: :unprocessable_entity
+    render json: { errors: "Invalid params #{e}" }, status: :unprocessable_entity
   end
 
   def status
@@ -29,6 +29,17 @@ class BrandsController < ApplicationController
       render json: brand, status: :created
     else
       render json: { errors: brand }, status: :service_unavailable
+    end
+  end
+
+  def update
+    brand = Brand.find(params[:id])
+    brand.update!(brand_params)
+
+    if brand
+      render json: brand, status: :created
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

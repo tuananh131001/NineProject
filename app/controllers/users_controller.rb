@@ -20,12 +20,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.find(params[:id])
+
+    if user.update!(auth_credentials: params[:auth_credentials], payout_rate: params[:payout_rate],
+                    password: user.password_digest)
+      render json: { message: "Successful update user payment info" }, status: :created
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   delegate :destroy, to: :user
 
   private
 
     def user_params
-      params.permit(:user_name, :email, :password)
+      params.permit(:user_name, :email, :password, :auth_credentials, :payout_rate)
     end
 
     def find_user
