@@ -170,8 +170,11 @@ card cancellation activities.
 `GET /card_attempts`
 
 # Further improve
-use `dry-rb` to validate parameters
-write models and controller test for others files
+
+Use `dry-rb` to validate parameters
+
+Write models and controller test for others files
+
 Better handling error
 
 Technical Requirements
