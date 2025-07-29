@@ -16,3 +16,4 @@ sandbox.rb
 .vscode
 
 vendor/bundle
+public/*

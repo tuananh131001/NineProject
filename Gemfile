@@ -20,6 +20,8 @@ gem 'bcrypt'
 
 gem 'jwt'
 
+gem 'rswag'
+
 group :development, :test do
   gem 'dead_end' # find unmatched 'end' in code
   gem 'pry-byebug'
