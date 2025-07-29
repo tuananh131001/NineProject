@@ -38,64 +38,54 @@ Develop a comprehensive App interface and API with the following specifications:
 
 ---
 
-# ✅ Functional Requirements Checklist  
+# ✅ Functional Requirements  
 
 ## 🔐 User Authentication  
-- [ ] Implement user registration with email credentials  
-- [ ] Implement login functionality  
-- [ ] Create seed mechanism for default accounts  
+- [ ] Enable user registration and login using email credentials  
+- [ ] Preload default accounts through a seed mechanism  
 
 ## 🏷️ Brand Management  
-- [ ] Enable adding new brands  
-- [ ] Allow up to 5 custom fields per brand  
-- [ ] Implement brand CRUD operations  
+- [ ] Facilitate the addition of brands  
+- [ ] Allow defining up to 5 customizable data fields for each brand  
 
 ## 📦 Product Management  
-- [ ] Enable adding products to brands  
-- [ ] Allow up to 5 custom fields per product  
-- [ ] Implement price field (required) with currency support  
-- [ ] Implement product CRUD operations  
+- [ ] Provide capability to add, update, and delete products associated with brands  
+- [ ] Support up to 5 customizable data fields for each product  
+- [ ] Mandate inclusion of a price value for products (various currencies)  
 
 ## 🚦 State Management  
-- [ ] Add "active/inactive" states for brands  
-- [ ] Add "active/inactive" states for products  
-- [ ] Implement state change functionality  
+- [ ] Allow manipulation of brand states ("active"/"inactive")  
+- [ ] Allow manipulation of product states ("active"/"inactive")  
 
 ## 👥 Client Management  
-- [ ] Enable adding new clients  
-- [ ] Implement client authentication credentials  
-- [ ] Configure client payout rates  
+- [ ] Enable addition of clients  
+- [ ] Allow defining authentication credentials  
+- [ ] Allow configuring payout rates  
 
 ## 🔒 Product Access Control  
-- [ ] Allow clients to specify accessible products  
-- [ ] Implement access control logic  
+- [ ] Empower clients to specify accessible products for their accounts  
 
-## 💳 Card Issuance  
-- [ ] Enable card request functionality  
-- [ ] Generate unique activation numbers  
-- [ ] Implement optional purchase PIN system  
+## 💳 Card Issuance and Management  
+- [ ] Provide ability to request new cards for products  
+- [ ] Upon issuance, provide unique activation number  
+- [ ] Provide optional purchase details pin  
 
 ## ❌ Card Cancellation  
-- [ ] Allow card cancellation by clients  
-- [ ] Implement cancellation tracking  
+- [ ] Allow clients to cancel previously issued cards  
 
 ## 📊 Reporting  
-- [ ] Generate spending reports  
-- [ ] Generate card cancellation reports  
-- [ ] Implement report export functionality  
+- [ ] Support generation of spending reports  
+- [ ] Support generation of card cancellation reports  
 
 ---
 
 # 🔧 Technical Requirements  
 
 1. **API Development**  
-   - [ ] Build RESTful API endpoints  
-   - [ ] Implement JSON API standard  
+   - [ ] Develop robust API using Ruby On Rails framework  
 
 2. **Authentication System**  
-   - [ ] Secure all sensitive endpoints  
-   - [ ] Implement token-based auth  
+   - [ ] Implement secure authentication system  
 
 3. **Version Control**  
-   - [ ] Maintain GitHub repository  
-   - [ ] Implement branching strategy  
+   - [ ] Maintain version-controlled repository on GitHub  
