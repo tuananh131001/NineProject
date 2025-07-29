@@ -20,171 +20,53 @@ PostgreSQL
 # Deployment
 https://nineproject.onrender.com
 
-![image](https://github.com/tuananh131001/NineProject/assets/67695658/59e80393-df17-4c65-8e9b-9fb87149d9d5)
-
-
-# Endpoints
-- [x]  User Authentication:
+# Objective
+Develop a comprehensive App interface and API that fulfills the following specifications:
+# Technology Stack
+● Utilize Rails 7.x with Ruby 3.1 for efficient development.
+● Employ PostgreSQL as the database management system for robust data handling.
+● Ensure API responses are formatted in JSON / JSON API to facilitate seamless
+integration.
+● Implement Rspec for rigorous and automated testing.
+● Enforce database integrity through the application of DB constraints and appropriate
+foreign keys.
+# Functional Requirements
+1. User Authentication:
 ○ Enable user registration and login using email credentials.
-`POST /auth/login`
-```
-{
-    "email": "w@g.com",
-    "password": "123456"
-}
-```
-
-`POST /users`
-```
-{
-    "user_name" : "william",
-    "email": "w@g.com",
-    "password": "123456"
-}
-```
 ○ Preload default accounts through a seed mechanism.
-Run `bundle exec rake db:seed`
-
-> For every endpoints bellow . All needs include token get from login
-
-- [x]  Brand Management
-Facilitate the addition of brands with the ability to define up to 5 customizable
+2. Brand Management
+○ Facilitate the addition of brands with the ability to define up to 5 customizable
 data fields for each brand.
-`POST /brands`
-```
-{
-    "brand_id": 1,
-    "name": "product 1",
-    "price": 1.2,
-    "currency": 1.2,
-    "weight": 67,
-    "sku": "SKU-1231",
-    "description": "Hello",
-    "manufacturing_date": "12/12/2001",
-    "status": "active"
-}
-```
-`GET /brands`
-
-`POST /brands`
-```
-{
-    "brand_id": 1,
-    "name": "product 1",
-    "price": 1.2,
-    "currency": 1.2,
-    "weight": 67,
-    "sku": "SKU-1231",
-    "description": "Hello",
-    "manufacturing_date": "12/12/2001",
-    "status": "active"
-}
-```
-`PUT /brands/2`
-```
-{
-    "name": "product 2"
-}
-```
-
-`DELETE /brands/2`
-
-- [x]  Product Management:
-Provide the capability to add, update, and delete products associated with
+3. Product Management:
+○ Provide the capability to add, update, and delete products associated with
 brands.
-Support up to 5 customizable data fields for each product.
-Mandate inclusion of a price value for products, accommodating various
+○ Support up to 5 customizable data fields for each product.
+○ Mandate inclusion of a price value for products, accommodating various
 currencies.
-`GET /products`
-
-`POST /products`
-```
-{
-    "brand_id": 1,
-    "name": "product 1",
-    "price": 1.2,
-    "currency": 1.2,
-    "weight": 67,
-    "sku": "SKU-1231",
-    "description": "Hello",
-    "manufacturing_date": "12/12/2001",
-    "status": "active"
-}
-```
-`PUT /products/2`
-```
-{
-    "name": "product 2"
-}
-```
-
-`DELETE /products/2`
-
-
-
-- [x]  State Management:
-Allow the manipulation of brand and product states, encompassing "active" and
+4. State Management:
+○ Allow the manipulation of brand and product states, encompassing "active" and
 "inactive" options.
-`PUT /brands/1/status`
-
-`PUT /products/1/status`
-
-
-- [x]  Client Management:
-Enable the addition of clients with the option to define authentication credentials
+5. Client Management:
+○ Enable the addition of clients with the option to define authentication credentials
 and payout rates.
-`PUT /users/:id`
-```
-{
-    "auth_credentials": "oaut22h2",
-    "password": "123456"
-}
-```
-
-
-- [x]  Product Access Control:
-Empower clients to specify accessible products for their accounts.
-`GET /products/:product_id`
-
-
-- [x]  Card Issuance and Management:
-Provide clients with the ability to request new cards for products.
-Upon issuance, furnish clients with a unique activation number and an optional
+6. Product Access Control:
+○ Empower clients to specify accessible products for their accounts.
+7. Card Issuance and Management:
+○ Provide clients with the ability to request new cards for products.
+○ Upon issuance, furnish clients with a unique activation number and an optional
 purchase details pin.
-`POST /cards`
-```
-{
-    "name": "Card 1",
-    "balance": 1.2,
-    "product_id": 1
-}
-```
-
-`PUT /cards/3/activate`
-```
-{
-    "activation_code": "$2a$12$VDBRmkKRlblabGLPo90iQOVwqcpNJpsTWBFF1zYUKQK6x2hFck4gu"
-}
-```
-
-- [x]  Card Cancellation:
-Allow clients to cancel previously issued cards as needed.
-`PUT /cards/:card_id/cancel`
-
-
-- [x]  Reporting:
-Support the generation of comprehensive reports encompassing spending and
+8. Card Cancellation:
+○ Allow clients to cancel previously issued cards as needed.
+9. Reporting:
+○ Support the generation of comprehensive reports encompassing spending and
 card cancellation activities.
-`GET /card_attempts`
-
-# Further improve
-
-Use `dry-rb` to validate parameters
-
-Write models and controller test for others files
-
-Better handling error
-
-## Postman
-[Postman Collection](NineProject.postman_collection.json)
-
+# Technical Requirements
+1. API Development:
+○ Develop a robust API using the Ruby On Rails framework to ensure a structured
+and maintainable codebase.
+2. Authentication System:
+○ Implement a secure authentication system to safeguard user accounts and
+sensitive operations.
+3. Version Control:
+○ Maintain a version-controlled repository on GitHub to facilitate collaborative
+development and code management.
